@@ -1,0 +1,29 @@
+History to check bash history
+!(x) to execute command from history
+Example: !72
+
+Cntrl R to do reverse search
+such as cat, etc. 
+
+Piping and Redirection
+
+Data Streams
+
+STDIN
+STOUT
+STDERR
+
+Pipe = |
+Redirection > < 
+
+:Redirecting to new file
+
+::New File - echo "test" > file.txt
+::Append File - echo "test" >> file.txt
+::Redirecting from File - wc -m < redirection.txt
+::Redirecing STDERR ls ./test 2> error.txt
+::Piping cat error.txt | wc -m > count.txt
+
+Exercise
+
+Cat /etc/passwd | sort | more
