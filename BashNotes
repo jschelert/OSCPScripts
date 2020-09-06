@@ -27,3 +27,27 @@ Redirection > <
 Exercise
 
 Cat /etc/passwd | sort | more
+
+GREP
+
+ls -la /usr/bin | grep zip
+
+SED
+
+SED is a stream editor
+
+echo "I need to try hard" | sed 's/hard/harder/'
+I need to try harder 
+
+CUT
+
+echo "I hack binaries, web apps, mobile apps
+
+cut -f (Number) -d Delimiter
+
+| cut -f 2 -d ","
+
+cut -d ":" -f 1 /etc /passwd
+
+AWK over multiple cut
+
