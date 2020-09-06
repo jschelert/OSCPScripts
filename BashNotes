@@ -53,4 +53,58 @@ AWK over multiple cut
 
 cat /etc/passwd | awk -F ":" '{print $1, $6}' | grep '/bin'
 
+NANO
 
+nano <filename.txt>
+
+Ctnrl + O - Write Out
+Ctrl + K - Cut
+Ctrl + U - Paste / Uncut
+Ctrl + W - Search
+Ctrl + X - Exit
+
+VI
+
+vi <filename.txt>
+
+i - insert text mode
+esc - command mode
+dd - delete current line
+yy - copy current line
+p - paste clipboard
+x - delete current character
+:w - write file to disk and stay in vi
+:q! - quit without saving
+:wq - write and quit
+
+COMPARING FILES
+
+comparing two files 
+
+comm scan-a.txt scan-b.txt
+
+1st file 2nd file 3rd combined
+
+comm suppressing files
+
+comm -12 scan-a.txt scan-b.txt
+
+DIFF
+
+diff -c scan-a.txt scan-b.txt
+
+-c context format
+-u unifed format
+
+VIMDIFF
+
+vimdiff scan-a.txt scan-b.txt
+
+ctrl + w - switch windows
+do: gets change 
+
+TARBALL
+
+extract tarbal
+
+tar -zxvf yourfile.tar.gz
