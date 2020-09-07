@@ -108,3 +108,33 @@ TARBALL
 extract tarbal
 
 tar -zxvf yourfile.tar.gz
+
+BACKGROUND PROCESS
+
+command string + &
+Example: ping -c 400 localhost &
+ctrl + c - Cancel Command
+ctrl + z - Suspend then job to background
+
+
+JOBS and FG
+
+jobs - List background jobs
+fg %1 - Bring BG job 1 to the foreground
+
+PS and KILL
+
+ps - List processes
+ps -ef - List all processes 
+ps aux | grep processname
+
+KILL
+
+kill <PID> 
+kill 1337
+
+
+
+
+
+
