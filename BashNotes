@@ -133,7 +133,18 @@ KILL
 kill <PID> 
 kill 1337
 
+TAIL - Monitor Logs File while they are written
 
+tail -f - continously updates terminal
+
+sudo tail -f /var/log/apache2/access.log
+
+WATCH
+
+watch -n 5 command
+
+Example watching ps command
+watch -n 5 ps -ef
 
 
 
