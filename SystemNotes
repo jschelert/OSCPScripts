@@ -1,0 +1,4 @@
+START SERVICE
+
+sudo systemctl start process
+ex: sudo systemctl start apache
