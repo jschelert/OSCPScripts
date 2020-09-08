@@ -146,6 +146,43 @@ watch -n 5 command
 Example watching ps command
 watch -n 5 ps -ef
 
+DOWNLOAD FILES
+
+WGET
+
+WGET -O different destination file name
+
+CURL -o different destination file name
+
+AXEL
+axel -n number of multiple connection
+     -a precise indicator
+     -o  change destination file name
+     
+Exercise 
+
+Download from exploit-db
+
+CUSTOMIZING THE BASH ENVIRONMENT
+
+export HISTCONTROL=ignoredumps
+export HISTIGNORE="&:ls:[bf]g:exit:history" - suppressed &,ls, bf and bg, exit and history from the History Commands output.
+export HISTTIMEFORTMAT='%F %T' 
+:Check strftime man page for more information
+
+
+ALIAS
+
+alias lsa='ls -la'
+lsa
+
+alias mkdir='ping -c 1 localhost' 
+
+unalias mkdir
+
+PERSISTANT BASH CUSTOMIZATION
+
+/etc/bash.bashrc
 
 
 
